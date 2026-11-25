@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="innovatech-cyan" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67e8f9" />
+      <stop offset="1" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="35" rx="25" ry="13" transform="rotate(-22 32 35)" fill="none" stroke="url(#innovatech-cyan)" stroke-width="4" stroke-linecap="round" />
+  <text x="32" y="45" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="30" font-style="italic" font-weight="900" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" paint-order="stroke fill" letter-spacing="-3">IS</text>
+  <circle cx="8" cy="40" r="4" fill="url(#innovatech-cyan)" />
+  <rect x="48" y="15" width="4" height="4" rx="0.6" fill="#67e8f9" />
+  <rect x="54" y="21" width="4" height="4" rx="0.6" fill="#22d3ee" />
+  <rect x="48" y="27" width="4" height="4" rx="0.6" fill="#0ea5e9" />
+</svg>

@@ -1,0 +1,37 @@
+# Compilaciones y artefactos
+bin/
+obj/
+dist/
+build/
+*.user
+*.suo
+.vs/
+.idea/
+
+# Dependencias
+node_modules/
+
+# Entorno
+.env
+.env.local
+.env.*.local
+
+# Logs y bases de datos locales
+*.log
+*.db
+*.sqlite
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Documentos e informes generados
+*.docx
+*.pdf
+docs/
+DOCUMENTACION*.md
+~$*
+
+# Carpetas excluidas del repositorio
+.vscode/
+database/

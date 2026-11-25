@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ────────────────────────────────────────────────────────────────────────────
+   Sistema de diseño TechAsset
+   Los colores se declaran como variables CSS para que el modo claro y el oscuro
+   compartan los mismos componentes (consistencia visual, ISO/IEC 25010).
+   ──────────────────────────────────────────────────────────────────────────── */
+:root {
+  --surface: 255 255 255;
+  --surface-2: 248 250 252;
+  --surface-3: 241 245 249;
+  --ink: 15 23 42;
+  --muted: 82 98 122;
+  --line: 226 232 240;
+  --line-strong: 203 213 225;
+  --control: 124 139 161;
+  --chart-1: 5 150 105;
+  --chart-2: 37 99 235;
+  --chart-3: 217 119 6;
+  --chart-4: 225 29 72;
+}
+
+.dark {
+  --surface: 15 23 42;
+  --surface-2: 19 28 46;
+  --surface-3: 30 41 59;
+  --ink: 226 232 240;
+  --muted: 148 163 184;
+  --line: 39 51 74;
+  --line-strong: 59 74 102;
+  --control: 100 116 139;
+  --chart-1: 52 211 153;
+  --chart-2: 96 165 250;
+  --chart-3: 251 191 36;
+  --chart-4: 251 113 133;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-surface-2 text-ink antialiased;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Foco visible y consistente (heurística de Nielsen: visibilidad del estado del sistema) */
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-surface;
+}
+
+/* Barra de desplazamiento discreta */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-line-strong;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Estilos de los controles de formulario */
+@layer components {
+  .campo-base {
+    @apply w-full rounded-xl border border-control bg-surface px-3.5 py-2.5 text-sm text-ink
+      placeholder:text-muted transition
+      focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/25
+      disabled:cursor-not-allowed disabled:bg-surface-3 disabled:text-muted;
+  }
+
+  .campo-error {
+    @apply border-rose-500 focus:border-rose-500 focus:ring-rose-500/25;
+  }
+
+  .etiqueta-campo {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+
+  .tarjeta {
+    @apply rounded-2xl border border-line bg-surface shadow-card;
+  }
+
+  .enlace-navegacion {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted
+      transition hover:bg-surface-3 hover:text-ink;
+  }
+
+  .enlace-navegacion-activo {
+    @apply bg-brand-50 text-brand-700 hover:bg-brand-50 hover:text-brand-700
+      dark:bg-brand-500/20 dark:text-brand-100 dark:ring-1 dark:ring-inset dark:ring-brand-400/30
+      dark:hover:bg-brand-500/25 dark:hover:text-brand-100;
+  }
+}
+
+/* Tooltips y leyendas de Recharts adaptados al tema activo. */
+.recharts-default-tooltip {
+  background-color: rgb(var(--surface)) !important;
+  border-color: rgb(var(--line-strong)) !important;
+  color: rgb(var(--ink)) !important;
+}
+
+.recharts-tooltip-label {
+  color: rgb(var(--muted)) !important;
+}
+
+.recharts-legend-item-text {
+  color: rgb(var(--ink)) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
